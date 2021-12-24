@@ -1,0 +1,268 @@
+@media (max-width: 1200px) {
+
+}
+	
+@media (max-width: 991px) {
+	.container {
+		max-width: 700px;
+	}
+	.catalog {
+		&__tab {
+			font-size: 15px;
+		}
+		&__content {
+			justify-content: center;
+		}
+	}
+	.reviews {
+		&__client {
+			max-width: calc(169px / 1.2); 
+			max-height: calc(169px / 1.2); 
+		}
+		&__text {
+			width: 500px;
+		}
+	}
+	.carousel {
+		&__inner {
+			img {
+				width: 700px;
+			}
+		}
+		button {
+			
+			margin: 15px 5px 0;
+			width: 30px;
+			height: 30px;
+			border-radius: 100%;
+			border: none;
+			background-color: rgb(239, 239, 239);
+			font-size: 0;
+		}
+		li.slick-active {
+			button {
+				background-color: #d1d1d1;
+			}
+		}
+	}
+	.button {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	.footer {
+		&__info {
+			height: 200px;
+			padding: 15px 68px 15px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.container {
+		max-width: 450px;
+	}
+	.header {
+		&__official {
+			display: none;
+
+		}
+	}
+	.button {
+		width: 160px;
+		height: 35px;
+		font-size: 15px;
+		&_main {
+			width: 230px;
+			height: 45px;
+		}
+		&_submit {
+			width: 100%;
+			height: 55px;
+			font-size: 16px;
+		}
+	}
+	.promo {
+		&__icon {
+			width: 140px;
+			font-size: 18px;
+		}
+	}
+	.reasons {
+		&__block {
+			justify-content: center;
+			flex-wrap: wrap;
+
+		}
+		&__item {
+			margin-bottom: 40px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.catalog {
+		&__tab {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			line-height: 16px;
+		}
+		
+	}
+	.reviews {
+		&__item {
+			flex-direction:column;
+			align-items: center; 
+		}
+		&__text {
+			width: 300px;
+			margin-top: 20px;
+			display: block;
+			text-align: center;
+		}
+	}
+	.carousel {
+		&__inner {
+			img {
+				width: 450px;
+			}
+		}
+	}
+	.footer {
+		&__info {
+			padding: 15px 15px 15px;
+		}
+		
+	}
+}
+
+@media (max-width: 575px) {
+	.container {
+		max-width: 310px;
+	}
+	.header{
+		flex-direction: column;
+		&__phone {
+			margin-top: 30px;
+			font-size: 25px;
+			margin-bottom: 10px;
+		}
+	}
+	.promo {
+		&__wrapper {
+			align-items: center;
+		}
+		&__header {
+			font-size: 35px;
+			text-align: center;
+		}
+		&__subheader {
+			font-size: 20px;
+			text-align: center;
+		}
+		&__icons {
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+		}
+		&__icon {
+			margin-top: 20px;
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+	.reasons {
+		&__name {
+			font-size: 22px;
+		}
+		&__descr {
+			font-size: 18px;
+		}
+	}
+	.button {
+		width: 225px;
+		height: 55px;
+		font-size: 19px;
+		&_main {
+			height: 75px;
+		}
+		&_submit {
+			width: 100%;
+			height: 55px;
+			
+		}
+		&_mini {
+			width: 160px;
+		}
+	}
+	.title {
+		&_left {
+			font-size: 30px;
+			line-height: 40px;
+		}
+	}
+	.consultation {
+		&__descr {
+			font-size: 19px;
+		}
+	}
+	.feed-form {
+		input {
+			font-size: 17px;
+		}
+	}
+	.catalog {
+		&__tab {
+			font-size: 13px;
+			transform: skewX(-15deg);
+			div {
+				padding-right: 5px;
+				transform: skewX(15deg);
+			}
+		}
+	}
+	.carousel {
+		&__inner {
+			img {
+				width: 310px;
+			}
+		}
+	}
+	.footer {
+		&__info {
+			width: 200px;
+		}
+		&__addr {
+			font-size: 17px;
+			margin-bottom: 30px;
+		}
+		&__phone {
+			margin-bottom: 25px;
+		}
+		&__social-item {
+			width: 40px;
+			height: 40px;
+			margin: 0 7px;
+			img {
+				height: 22px;
+			}
+		}
+	}
+	.modal {
+		width: 300px;
+		padding: 38px 5px 40px 5px;
+		.feed-form {
+			width: 280px;
+			margin: 0 auto;
+			margin-top: 25px;
+		}
+		&__close {
+			top: 2px; 
+			right: 5px;
+			font-size: 30px;
+			padding: 10px 10px;
+		}
+	}
+}
