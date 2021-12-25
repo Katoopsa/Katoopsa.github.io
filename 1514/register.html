@@ -1,0 +1,93 @@
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>Hello!</title>
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap">
+</head>
+<body>
+	<header class="primary-header container group">
+	<h1 class="logo">
+		<a href="index.html"> Педагогическая <br> поддержка </a>
+	</h1>
+	<h3 class="tagline">Вы найдете здесь все необходимое!</h3>
+	<nav class="nav primary-nav">
+		<ul>
+			<li><a href="index.html">Главная</a></li><!--
+			--><li><a href="speakers.html">Спикеры</a></li><!--
+			--><li><a href="schedule.html">Расписание</a></li><!--
+			--><li><a href="venue.html">Место проведения</a></li>
+		</ul>
+	</nav>
+	</header>
+<section class="row-alt">
+	<div class="lead container">
+		<h1>Регистрация</h1>
+		<p>Пройдите регистрацию прямо сейчас и получите сборник заданий для первоклассников!</p>
+		
+	</div>
+</section>
+
+<section class="row">
+	<div class="grid">
+		<section class="col-2-3">
+			<h2>Регистрируй участие сейчас!</h2>
+			<h5>999 копеек за пропуск</h5>
+			<p>Приобрети пропуск на конференцию Педподдержки,используя форму справа. Можно приобрести сразу несколько пропусков, так что не стесняйтесь взять с собой коллегу или двух. После регистрации мы свяжемся с Вами и предоставим квитанцию за покупку. До встречи!</p>
+
+			<h4>Зачем участвовать?</h4>
+
+			<ul class="why-attend">
+				<li>Лучшие молодые умы началки 1514</li>
+				<li>Мероприятие проходит в приятной атмосфере посиделок</li>
+				<li>Бесплатный перекус из запасов учительских конфет ;), а также чай, кофе</li>
+				<li>Чисто практическая направленность конференции, НИКАКОЙ <<ВОДЫ>></li>
+			</ul>
+		</section><!--
+		--><form class="col-1-3" action="#" method="post">
+			<fieldset class="register-group">
+				<label>
+					Имя
+					<input type="text" name="name" placeholder="Полное имя" required>
+				</label>
+
+				<label>
+					Email
+					<input type="email" name="email" placeholder="Адрес почты" required>
+				</label>
+
+				<label>
+					Число билетов
+					<select name="quantity" required>
+						<option value="1" selected>1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</label>
+
+				<label>
+					Комментарии
+					<textarea name="comments"></textarea>
+				</label>
+			</fieldset>
+			<input class="btn btn-default" type="submit" name="submit" value="Заказать">
+		</form>
+	</div>
+</section>
+
+<footer class="primary-footer container group">
+	<small>&copy; Педподдержка</small>
+	<nav class="nav">
+		<ul>
+			<li><a href="index.html">Главная</a></li><!--
+			--><li><a href="speakers.html">Спикеры</a></li><!--
+			--><li><a href="schedule.html">Расписание</a></li><!--
+			--><li><a href="venue.html">Место проведения</a></li>
+		</ul>
+	</nav>
+</footer>
+</body>
+</html>
+
