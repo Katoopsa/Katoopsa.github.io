@@ -1,0 +1,317 @@
+@media (max-width: 1200px)
+	.menu
+		&-item
+			padding-right: 20px
+		&-link
+			font-size: 13px
+	.promo 
+		&-header
+			font-size: 50px
+		&-subheader
+			font-size: 35px
+	.benefits
+		&-item
+			align-items: flex-start
+		&-text
+			width: 300px
+	.mobile
+		&-item 
+			width: 280px
+			padding: 85px 10px 0 10px
+	.footer
+		&-wrapper>div
+			width: 50%
+			&:nth-child(1)
+				width: 25%
+			&:nth-child(3)
+				width: 25%
+				display: flex
+				justify-content: flex-end
+		&-mobile
+			display: flex
+			a 
+				margin: 0 3px
+				img
+					width: 100%
+@media (max-width: 991px)
+	.title 
+		font-size: 30px
+	.menu 
+		&-item 
+			padding-right: 8px
+		&-link
+			font-size: 10px
+	.subheader 
+		&-logo
+			img
+				width: 100%
+		&-official
+			font-size: 12px
+		&-phone
+			font-size: 18px
+		&-btn
+			margin-top: 21px
+			height: 40px
+			width: 100%
+	.promo 
+		&-header
+			font-size: 40px
+		&-subheader
+			font-size: 25px
+	.benefits
+		&-item
+			flex-direction: column
+			align-items: center
+		&-text
+			margin-top: 20px
+		&-round
+			margin-right: 0
+	.choice 
+		&-img
+			width: 100%
+	.footer 
+		&-wrapper
+			flex-wrap: wrap
+		&-wrapper>div 
+			width: 100%
+			display: flex
+			justify-content: center
+			margin-bottom: 20px
+			&:nth-child(1)
+				width: 100%
+			&:nth-child(3)
+				width: 100%
+				justify-content: center
+@media (max-width: 767px)
+	.menu 
+		position: fixed
+		top: 0
+		left: -100%
+		width: 50%
+		height: 100vh
+		padding: 20px 15px
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		background-color: rgba(0,0,0, .8)
+		transition: 0.6s all
+		&_active
+			left: 0
+		&-item 
+			padding-right: 0
+			border: none
+			margin: 10px 0
+		&-link
+			font-size: 13px
+	.hamburger
+		display: block
+		position: absolute
+		right: 10px
+		top: 50%
+		transform: translateY(-50%)
+		width: 25px
+		height: 12px
+		span
+			display: block
+			height: 2px
+			width: 100%
+			background-color: #fff
+			margin-bottom: 2px
+			transition: 0.5s all
+		&_active
+			span 
+				margin-bottom: -2px	
+					
+				&:nth-child(1)
+					transform: rotate(-45deg) translateY(3px)
+				&:nth-child(2)
+					display: none
+				&:nth-child(3)
+					transform: rotate(45deg) translateY(3px)
+	.xs-hidden
+		display: none
+	.xs-visible	
+		display: block
+	
+	.subheader
+		&-phone
+			display: block
+			text-align: center
+			margin-top: 15px
+		&-btn
+			margin: 0 auto
+			display: block
+			width: 200px
+			height: 40px
+			margin-top: 8px
+	.promo 
+		&-header
+			font-size: 37px
+		&-subheader
+			font-size: 23px
+	.mobile 
+		padding: 40px 0
+	.benefits 
+		&-item 
+			text-align: center
+@media (max-width: 575px)
+	nav 
+		height: 30px
+		width: 100vw
+	.hamburger
+		&_active
+			span 
+				&:nth-child(1)
+					transform: translateY(5px) rotate(-45deg)
+				&:nth-child(3)
+					transform: translateY(5px) rotate(45deg)
+	.subheader 
+		height: 60px
+		top: 30px
+		margin-top: 0
+		&-official
+			display: none
+		&-logo
+			margin-top: 16px
+		&-phone
+			font-size: 12px
+			margin-top: 11px
+		&-btn
+			margin: 0 auto
+			display: block
+			width: 110px
+			height: 22px
+			margin-top: 6px
+			font-size: 10px
+			&:hover
+					background: linear-gradient(0deg, $color-blue 0%, #4CE2FF 100%)
+	.promo 
+		min-height: 400px
+		padding: 110px 0 35px 0
+		&-descr
+			display: none
+		&-header
+			font-size: 30px
+			padding: 0 24px
+		&-subheader
+			font-size: 18px
+			padding: 0 24px
+			line-height: 25px
+			margin-top: 33px
+		&-btn
+			margin-top: 70px
+			width: 210px
+			height: 50px
+			&:hover
+					background: linear-gradient(0deg, $color-blue 0%, #4CE2FF 100%)
+	.title 
+		font-size: 16px
+		margin-top: 20px
+		line-height: 0
+	.subtitle 
+		font-size: 14px
+		margin-top: 10px
+	.menu 
+		width: 85%
+		&-link
+			font-size: 20px
+			display: block	
+		&-item 
+			width: 100%
+			text-align: center
+			padding: 	5px 0
+	.benefits 
+		padding: 22px 0 36px 0
+		&-item 
+			margin-top: 25px
+		&-round
+			width: 100px
+			height: 100px
+		&-text
+			width: 100%
+			margin-top: 27px
+		&-name
+			font-size: 16px
+		&-descr
+			font-size: 15px
+	.mobile 
+		padding: 25px 0 
+		&-item 
+			width: 290px
+			height: 254px
+			padding: 80px 30px 0 30px
+			&-subtitle
+				font-size: 18px
+				line-height: 31px
+			&-plus
+				bottom: 20px	
+	.choice
+		padding: 30px 0
+		min-height: 393px
+		background: #000
+		.title 
+			&-inversion
+				display: none
+		.subtitle 
+			color: #fff
+			z-index: 5
+			font-size: 17px
+			line-height: 24px
+			&-inversion
+				display: none
+		&-img 
+			margin-top: 35px
+		.black
+			display: none
+	.require 
+		padding: 22px 0 0 0
+		&-block
+			margin: 10px 0 0 0 
+			&:nth-child(1)
+				margin-top: 25px
+		&-list
+			padding-left: 2rem
+			li
+				font-size: 14px
+				margin-bottom: 0
+		&-title
+			font-size: 16px
+		&-descr
+			font-size: 14px
+	.world 
+		padding: 24px 0 0 0
+		min-height: 360px
+		.title 
+			&-inversion
+				margin-top: 25px
+		&-look
+			bottom: 30px
+			width: 220px
+	footer 
+		padding: 24px 0 0 0 
+	.footer
+		&-divider
+			width: 255px
+		&-wrapper
+			padding-top: 20px
+		&-wrapper>div 
+			margin-bottom: 20px
+			&:nth-child(1)
+				order: 2
+			&:nth-child(2)
+				order: 1
+			&:nth-child(3)
+				order: 3
+		&-links
+			width: 290px
+			&-main
+				padding: 0
+				font-size: 14px
+			&-sub
+				flex-wrap: wrap 
+				justify-content: center
+				a 
+					margin: 0 7px
+					font-size: 12px
+			&-lang
+				margin-top: 10px
