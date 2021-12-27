@@ -61,7 +61,7 @@ $(document).ready(function(){
       name: 'required',
       phone: 'required',
       email: {
-        reqired: true,
+        required: true,
         email: true
       }
     },
