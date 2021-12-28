@@ -2,6 +2,7 @@
 * {
   font-family: 'Museo Sans', sans-serif;
 }
+@import '../base/animations';
 
 .container {
   max-width: 950px;
@@ -20,4 +21,6 @@
 @import 'reviews';
 @import 'footer';
 @import 'modal';
+@import 'pageup';
+
 @import 'media';

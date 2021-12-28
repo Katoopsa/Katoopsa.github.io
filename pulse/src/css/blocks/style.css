@@ -1,6 +1,27 @@
 * {
   font-family: 'Museo Sans', sans-serif; }
 
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 .container {
   max-width: 950px;
   margin: 0 auto; }
@@ -173,6 +194,12 @@
     .reasons__descr a {
       text-decoration: underline;
       color: #FF0000; }
+  .reasons__icon_animated {
+    -webkit-animation: heartbeat 1.5s ease infinite;
+            animation: heartbeat 1.5s ease infinite; }
+    .reasons__icon_animated:hover {
+      -webkit-animation-play-state: paused;
+              animation-play-state: paused; }
 
 .title {
   font-weight: 700;
@@ -592,6 +619,16 @@
 #consultation, #order, #thx {
   display: none; }
 
+.pageup {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px; }
+  .pageup img {
+    width: 100%; }
+
 @media (max-width: 991px) {
   .container {
     max-width: 700px; }
@@ -796,4 +833,5 @@
       right: 5px;
       font-size: 30px;
       padding: 10px 10px; } }
+
 /*# sourceMappingURL=style.css.map */
