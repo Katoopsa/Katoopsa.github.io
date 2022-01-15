@@ -20,6 +20,15 @@
 			display: block;
 			transform: rotate(-90deg) translate(-30%, -260%);
 			width: 150px;
+
 		}
+	}
+	&__link {
+		&:hover {
+			svg path {
+				fill: #fff;
+			}
+		}
+		
 	}
 }

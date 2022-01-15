@@ -29,3 +29,24 @@
 		@include before_circle;
 	}
 }
+
+.hamburger {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	display: flex;
+	height: 21px;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	cursor: pointer;
+	span {
+		display: block;
+		height: 3px;
+		width: 30px;
+		background: #151812;
+	}
+	span.long {
+		width: 36px;
+	}
+}
