@@ -323,6 +323,8 @@ template {
     line-height: 24px; }
   .title_fz48 {
     font-size: 48px; }
+  .title_fz35 {
+    font-size: 36px; }
 
 .btn {
   height: 45px;
@@ -446,6 +448,74 @@ template {
     background-color: #fff;
     opacity: 0.75; }
 
+.about {
+  padding-top: 120px; }
+  .about__wrapper {
+    display: grid;
+    grid-template-columns: 400px 670px;
+    grid-template-rows: minmax(245px, auto) minmax(255px, auto);
+    grid-auto-rows: minmax(245px, auto);
+    -webkit-column-gap: 70px;
+            column-gap: 70px;
+    row-gap: 40px; }
+  .about__photo {
+    grid-row: 1/3; }
+    .about__photo img {
+      width: 100%; }
+  .about__descr {
+    padding-top: 6px; }
+    .about__descr .divider {
+      margin-top: 0; }
+  .about__title {
+    padding-left: 12px;
+    padding-top: 1px;
+    position: relative; }
+    .about__title:before {
+      content: '';
+      height: 36px;
+      width: 36px;
+      border-radius: 100%;
+      background: #FFA501;
+      position: absolute;
+      z-index: -1;
+      top: -25%;
+      left: 0; }
+  .about__text {
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 20px; }
+  .about__skills {
+    display: grid;
+    grid-template: repeat(2, minmax(115px, auto))/repeat(2, 260px);
+    grid-auto-rows: 1fr;
+    -webkit-column-gap: 50px;
+            column-gap: 50px;
+    row-gap: 20px; }
+    .about__skills-item {
+      display: grid;
+      grid-template-columns: 40px 200px;
+      -webkit-column-gap: 20px;
+              column-gap: 20px; }
+    .about__skills-circle {
+      position: relative;
+      padding: 15px 0 0 15px; }
+      .about__skills-circle:before {
+        content: '';
+        height: 36px;
+        width: 36px;
+        border-radius: 100%;
+        background: #FFA501;
+        position: absolute;
+        z-index: -1;
+        top: -25%;
+        left: 0; }
+      .about__skills-circle:before {
+        top: 0; }
+    .about__skills-text {
+      font-size: 12px;
+      line-height: 18px;
+      margin-top: 6px; }
+
 * {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -454,5 +524,11 @@ template {
 .container {
   width: 1140px;
   margin: 0 auto; }
+
+.divider {
+  height: 3px;
+  width: 60px;
+  background-color: #FFA501;
+  margin-top: 25px; }
 
 /*# sourceMappingURL=style.css.map */
