@@ -616,6 +616,94 @@ template {
       font-size: 12px;
       line-height: 18px; }
 
+.skills {
+  padding-top: 120px; }
+  .skills__title {
+    position: relative;
+    text-align: center; }
+    .skills__title:before {
+      content: '';
+      height: 36px;
+      width: 36px;
+      border-radius: 100%;
+      background: #FFA501;
+      position: absolute;
+      z-index: -1;
+      top: -25%;
+      left: 0; }
+    .skills__title:before {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%); }
+  .skills__subtitle {
+    text-align: center; }
+  .skills__wrapper {
+    padding: 60px 10px 0 10px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(270px, auto));
+    grid-template-rows: repeat(2, 270px, auto);
+    grid-gap: 13px;
+    grid-auto-rows: 270px, auto; }
+  .skills__item {
+    border: 1px solid #000;
+    padding: 30px 30px 25px 30px; }
+    .skills__item-img {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      min-height: 65px; }
+      .skills__item-img img {
+        max-width: 100%; }
+    .skills__item h3 {
+      margin-top: 20px;
+      margin-bottom: 0; }
+    .skills__item p {
+      margin-top: 15px;
+      font-size: 12px;
+      line-height: 18px;
+      margin-bottom: 0; }
+  .skills__ratings {
+    padding-top: 120px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    grid-template-rows: repeat(2, minmax(70px, auto));
+    grid-auto-rows: minmax(70px, auto);
+    -webkit-column-gap: 45px;
+            column-gap: 45px;
+    row-gap: 30px; }
+    .skills__ratings-title {
+      position: relative;
+      padding-left: 13px;
+      padding-top: 2px; }
+      .skills__ratings-title:before {
+        content: '';
+        height: 36px;
+        width: 36px;
+        border-radius: 100%;
+        background: #FFA501;
+        position: absolute;
+        z-index: -1;
+        top: -25%;
+        left: 0; }
+    .skills__ratings-item {
+      display: grid;
+      grid-template-columns: 200px 35px;
+      grid-template-rows: minmax(21px, auto) 14px;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between; }
+    .skills__ratings-line {
+      background: #E8E4DE;
+      border-radius: 4px;
+      grid-column: 1 / 3; }
+      .skills__ratings-line span {
+        background: #FFA501;
+        border-radius: 4px;
+        display: block;
+        height: 100%; }
+
 * {
   font-family: 'Poppins', sans-serif;
   margin: 0;
