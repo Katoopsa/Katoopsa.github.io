@@ -1,0 +1,35 @@
+.btn {
+	width: 230px;
+	height: 57px;
+	background-color: $main-color;
+	border-radius: 30px;
+	padding: 20px 40px;
+	border: 0;
+	a {
+		color: #fff;
+		text-transform: uppercase;
+		font-size: 15px;
+		display: block;
+		text-align: center;
+		line-height: 17px;
+
+	}
+	&_promo {
+		width: 160px;
+		height: 45px;
+		justify-self: end;
+		align-self: center;
+		padding: 12px 20px;
+
+		a {
+			font-size: 12px;
+			line-height: 22px;
+			&:hover {
+				font-weight: 900;
+				text-decoration: none;
+				letter-spacing: 0.04em;
+				transition: 0.5s all;
+			}
+		}
+	}
+}
