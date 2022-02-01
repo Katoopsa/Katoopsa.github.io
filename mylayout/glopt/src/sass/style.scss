@@ -3,8 +3,7 @@
 
 @import 'base/variables';
 @import 'base/mixins';
-@import 'blocks/promo';
-@import 'blocks/btn';
+
 
 
 
@@ -27,4 +26,12 @@
 	margin: 0 auto;
 	padding-top: 16px;
 }
+
+.subheader {
+
+}
+
+@import 'blocks/btn';
+@import 'blocks/promo';
+@import 'blocks/benefits';
 
