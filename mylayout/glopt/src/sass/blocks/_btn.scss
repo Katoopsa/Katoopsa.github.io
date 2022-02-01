@@ -12,6 +12,11 @@
 		display: block;
 		text-align: center;
 		line-height: 17px;
+		&:hover {
+			text-decoration: none;
+			letter-spacing: 0.04em;
+			transition: 0.5s all;
+		}
 
 	}
 	&_promo {
@@ -26,14 +31,13 @@
 			line-height: 22px;
 			&:hover {
 				font-weight: 900;
-				text-decoration: none;
-				letter-spacing: 0.04em;
-				transition: 0.5s all;
 			}
 		}
 	}
 	&_main {
 		margin: 0 auto;	
-		
+		a {
+			font-weight: 900;
+		}
 	}
 }
