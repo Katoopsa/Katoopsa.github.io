@@ -1,0 +1,31 @@
+.agent {
+	min-height: 340px;
+	padding: 55px 0 55px 0;
+	background: url("../img/china.png") center center / cover no-repeat;
+	&__img {
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+		border: 1px solid #fff;
+		border-radius: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			width: 50%;
+		}
+	}
+	&__text {
+		width: 980px;
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		margin-top: 20px;
+		font-weight: 300;
+		color: #fff;
+		font-size: 19px;
+		line-height: 27px;
+		margin-bottom: 0;
+
+	}
+}

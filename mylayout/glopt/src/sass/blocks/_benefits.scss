@@ -1,40 +1,30 @@
 .benefits {
+	background-color: #f3f3f3;
 	padding: 50px 0 50px 0;
-	padding-right: 15px;
+	
 	&__wrapper {
 		padding-top: 25px;
+		padding-right: 15px;
 		display: grid;
-		grid-template-columns: repeat(2, 530px);
+		grid-template: minmax(70px, auto) / repeat(2, 530px);
+		grid-auto-rows: minmax(70px, auto);
+		row-gap: 30px;
 		column-gap: 55px;
 		justify-content: center;
 	}
-	&__items {
-		display: grid;
-		grid-template: minmax(70px, auto)/ auto;
-		grid-auto-rows: minmax(70px, auto);
-		row-gap: 30px;
-	}
+	
 	&__item {
 		display: grid;
-		grid-template: auto / 68px auto; 
+		grid-template: auto / 60px auto; 
 		column-gap: 20px;	
 	}
 	&__img {
-		width: 100%;
+		img {
+			// width: 100%;
+			// object-fit: contain;
+		}
+		
 	}
-	&__descr {
-
-	}
-	&__head {
-		font-size: 16px;		
-		line-height: 16px;
-		font-weight: 900;
-		color: $main-color;	
-	}
-	&__text {
-		font-size: 14px;	
-		font-weight: 300;
-		padding-top: 10px;
-		line-height: 20px;
-	}
+	
+	
 }

@@ -24,7 +24,8 @@
 	width: 150px;
 	background-color: $main-color;
 	margin: 0 auto;
-	padding-top: 16px;
+	margin-top: 25px;
+	margin-bottom: 20px;
 }
 
 .subheader {
@@ -33,9 +34,47 @@
 	font-size: 26px;
 	line-height: 23px;
 	text-align: center;
+	&__descr {
+		font-size: 21px;
+		line-height: 24px;
+		font-weight: 300;
+		text-align: center;
+		&_work {
+			width: 880px;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+	&_agent {
+		color: #fff;
+		margin-top: 50px;
+	}
+}
+
+.card-head {
+	font-size: 16px;		
+	line-height: 16px;
+	font-weight: 900;
+	color: $main-color;
+	&_work {
+		text-align: center;
+		margin-top: 25px;
+	}
+}
+
+.card-text {
+	font-size: 14px;	
+	font-weight: 300;
+	padding-top: 10px;
+	line-height: 22px;
+	&_work{
+		text-align: center;
+	}
 }
 
 @import 'blocks/btn';
 @import 'blocks/promo';
 @import 'blocks/benefits';
+@import 'blocks/work';
+@import 'blocks/agent';
 

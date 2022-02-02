@@ -1,0 +1,18 @@
+.work {
+	min-height: 620px;
+	padding: 50px 0 50px 0;
+	&__cards {
+		display: grid;
+		padding-top: 35px;
+		grid-template-columns: repeat(auto-fit, 360px);
+		grid-gap: 30px;
+		grid-template-rows: auto;
+
+	}
+	&__img {
+		width: 360px;
+		height: 210px;
+		object-fit: cover;
+
+	}
+}
