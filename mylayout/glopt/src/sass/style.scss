@@ -28,7 +28,11 @@
 }
 
 .subheader {
-
+	font-weight: 900;
+	text-transform: uppercase;
+	font-size: 26px;
+	line-height: 23px;
+	text-align: center;
 }
 
 @import 'blocks/btn';
