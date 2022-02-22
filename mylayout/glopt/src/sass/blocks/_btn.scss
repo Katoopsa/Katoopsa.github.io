@@ -40,4 +40,28 @@
 			font-weight: 900;
 		}
 	}
+	&_mini {
+		margin: 0 auto;
+		margin-top: 25px;
+		width: 200px;
+		height: 45px;
+		margin-bottom: 25px;
+
+		a {
+			font-size: 12px;
+			line-height: 5px;
+		}
+	}
+	&_consultation {
+		width: 180px;	
+		height: 45px;
+		padding: 0;
+		display: flex;	
+		justify-content: center;	
+		align-items: center;	
+		a {
+			font-size: 12px;	
+			line-height: 22px;	
+		}	
+	}
 }
