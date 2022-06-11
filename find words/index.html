@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="settings">
+        <h1>Найди слова. Генератор квадратной таблицы</h1>
+        <input placeholder="Введите количество слов" name="amount-of-words" id="amount-of-words" type="text" required> <br><br>
+        <textarea placeholder="Введите слова через запятую:" name="words" id="words" cols="30" rows="6" required></textarea> <br><br>
+        <textarea placeholder="Введите текст задания:" name="assignment" id="assignment" cols="30" rows="4" required></textarea> <br><br>
+        Длина каждого слова не должна превышать их количество!
+        При генерации таблицы могут образоваться дополнительные случайные слова
+        <ul><b>Рекомендации для формулировки текста задания:</b>
+            <li>1. Указать направление слов (горизонтальное)</li>
+            <li>2. Обозначить тему, объединяющую все слова</li>
+            <li>3. Если слова нельзя объединить темой, обозначить нижнюю границу количества загаданных слов</li>
+        </ul>
+        <i>Пример. Найди и обведи не менее 10 слов на тему "Одежда". Слова расположены по горизонтали</i> <br><br>
+        <button class="btn">Сгенерировать</button>
+    </div>
+    <div class="sheet">
+        <p class="assignment-sheet"></p>
+        <table id="table"></table>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
