@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Универсальный код речей</title>
+<style type="text/css">@import "../main.css";</style>
+
+<script type="text/javascript">
+
+var matrix = [
+    ['Товарищи!', 'реализация намеченных плановых заданий', 'играет важную роль в формировании', 'существенных финансовых и административных условий'],
+    ['С другой стороны,', 'рамки и место обучения кадров', 'требуют от нас анализа', 'дальнейших направлений развития'],
+    ['Равным образом,', 'постоянный количественный рост и сфера нашей активности', 'требуют определения и уточнения', 'системы массового участия'],
+    ['Не следует, однако, забывать, что', 'сложившаяся структура органицации', 'способствует подготовке и реализации', 'позиций, занимаемых участниками в отношении поставленных задач'],
+    ['Таким образом,', 'новая модель организационной деятельности', 'обеспечивает широкому кругу специалистов участие в формировании', 'новых предложений'],
+    ['Повседневная практика показывает, что', 'дальнейшее развитие различных форм деятельности', 'позволяет выполнить важные задания по разработке', 'направлений прогрессивного развития']
+];
+
+var last_seq = [-1, -1, -1, -1];
+function rnd(max, seq) {
+    var val;
+    do { val = Math.floor(Math.random() * max); } while (val == last_seq[seq]);
+    return last_seq[seq] = val;
+}
+
+function make_clause() {
+    var res = '';
+    for (var i = 0; i < 3; ++i)
+        res += matrix[rnd(6, i)][i] + ' ';
+    return res + matrix[rnd(6, i)][3] + '.';
+}
+
+function generate() {
+    var count = document.getElementById('count').value;
+    var st = '';
+
+    for (var i = 0; i < count; ++i) {
+        if (st.length) st += ' ';
+        st += make_clause();
+    }
+
+    var text = document.getElementById('text');
+    text.removeChild(text.firstChild);
+    var p = document.createTextNode(st);
+    text.appendChild(p);
+}
+
+</script>
+
+</head>
+
+<body style="margin: 10">
+    Сгенерировать бредовых предложений: <input id="count" value="15"></input> <button id="generate" onclick="generate()">ОК</button>
+    <p id="text" style="width: 600px">...</p>
+    <script>generate()</script>
+</body>
+</html>

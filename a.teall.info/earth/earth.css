@@ -1,0 +1,87 @@
+.bottom_left {
+    position: absolute;
+    bottom: 15px;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+}
+
+.top_right {
+    position: absolute;
+    font-size: 80%;
+    top: 0px;
+    right: 0px;
+}
+
+.copy_rights {
+    text-align: right;
+    position: absolute;
+    font-size: 80%;
+    bottom: 15px;
+    right: 0px;
+    color: gray;
+}
+
+.center_center {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    top: 50%;
+}
+
+.center_center div {
+    font-size: 200%;
+    opacity: 0;
+    position: relative;
+    top: -50%;
+}
+
+.bottom_left > input {
+    font-family: Georgia;
+    font-size: 100%;
+    padding: 4px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    width: 7em;
+    color: white;
+    background: none;
+}
+
+.bottom_left > button {
+    font-family: Georgia;
+    font-size: 100%;
+    padding: 5px 8px 5px 8px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background: #202020;
+}
+
+.bottom_left > button:focus {
+    outline: 0;
+}
+
+.bottom_left > button:hover {
+    background: #404040;
+}
+
+.bottom_left > button:active {
+    background: #606060;
+}
+
+.bottom_left > button[state="active"] {
+    background: #2060a0;
+}
+
+.bottom_left > button[state="active"]:hover {
+    background: #3f7fbf;
+}
+
+.bottom_left > button[state="active"]:active {
+    background: #5f9fcf;
+}

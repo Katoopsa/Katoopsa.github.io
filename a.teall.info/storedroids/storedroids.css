@@ -1,0 +1,409 @@
+body {
+    font-family: Georgia;
+    height: 100%;
+}
+
+#ui {
+    box-shadow: rgba(0, 0, 0, 0.2) -1px 2px 2px;
+}
+
+#login_panel, #hider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: white;
+    display: inline-block;
+}
+
+#lfcopy {
+    position: absolute;
+    text-align: center;
+    font-family: Sans-Serif;
+    font-size: 70%;
+    width: 100%;
+    overflow: hidden;
+    bottom: 10px;
+    color: gray;
+}
+
+#tooltip {
+    font-family: Sans-Serif;
+    font-size: 70%;
+    position: absolute;
+    display: none;
+    left: 40px;
+    top: 40px;
+    background-color: #ffffd0;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 8px;
+}
+
+#tooltip > hr {
+    border: 0px;
+    height: 1px;
+    background-color: lightgray;
+}
+
+.ui-login-form {
+    padding-top: 0px;
+}
+
+.ui-top {
+    padding: 10px;
+}
+
+.controls > * {
+    vertical-align: top;
+}
+
+.modes > * {
+    vertical-align: top;
+}
+
+input.small-input {
+    font-family: Georgia;
+    font-size: 100%;
+    padding: 1px 1px 1px 4px;
+    border-radius: 3px;
+    border: 0.2px solid #d0d0d0;
+    box-shadow: inset rgba(0, 0, 0, 0.2) 0px 0px 4px;
+    width: 4em;
+}
+
+button {
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    font-family: Georgia;
+    font-size: 100%;
+    padding: 5px 8px 5px 8px;
+    border-radius: 3px;
+    color: #505050;
+    background: #fafafa;
+    border: 0.2px solid #d0d0d0;
+}
+
+button img {
+    filter: brightness(0.3);
+}
+
+button.small-button {
+    padding: 5px 8px 5px 8px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+button.small-text-button {
+    padding: 1px 6px 1px 6px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+a.small-text-link {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover {
+    background: #f0f0f0;
+}
+
+button:active {
+    background: #e0e0e0;
+}
+
+button[state="active"] {
+    background: #707070;
+    color: #f0f0f0;
+    border: none;
+}
+
+button[state="active"] img {
+    filter: brightness(1.0);
+}
+
+button[state="active"]:hover {
+    background: #606060;
+}
+
+button[state="active"]:active {
+    background: #808080;
+}
+
+.dialog-button-pane {
+    text-align: right;
+}
+
+.dialog-button-pane * {
+    margin-left: 5px;
+}
+
+.sd-floor-cell-normal {
+    stroke: gray;
+    stroke-width: 0.4px;
+    fill: none;
+}
+
+.sd-floor-wall {
+    stroke: black;
+    stroke-width: 3px;
+    fill: none;
+}
+
+.sd-object-no {
+    font-family: Arial;
+    font-size: 12pt;
+    cursor: default;
+}
+
+.sd-grid-text {
+    font-family: Arial;
+    font-size: 14pt;
+    cursor: default;
+    text-anchor: middle;
+    alignment-baseline: middle;
+    fill: gray;
+}
+
+.sd-grid-water {
+    font-family: Arial;
+    font-size: 10px;
+    cursor: default;
+    text-anchor: middle;
+    alignment-baseline: middle;
+    opacity: 0.1;
+}
+
+.sd-object-text {
+    font-family: Arial;
+    font-size: 14pt;
+    cursor: default;
+}
+
+.sd-object-number {
+    font-family: Arial;
+    font-size: 14pt;
+    cursor: default;
+}
+
+.sd-object-grab {
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+
+.sd-object-select {
+    stroke: none;
+    fill: red;
+    opacity: 0.5;
+}
+
+.sd-object-charge-bar {
+    stroke: black;
+    stroke-width: 1px;
+    fill: none;
+}
+
+.sd-object-charge-level {
+    stroke: none;
+}
+
+.sd-object-unload {
+    stroke: none;
+    fill: lightgreen;
+    filter: url(#sd_unload_blur);
+}
+
+.sd-path {
+    stroke: red;
+    stroke-width: 6px;
+    fill: none;
+    marker-end: url(#sd_path_arrow);
+}
+
+.sd-path-arrow {
+    stroke: none;
+    fill: red;
+}
+
+.ui-info-droid {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px -2px 2px;
+    min-width: 13em;
+    bottom: 0px;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.ui-info-time {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) -2px -2px 2px;
+    width: 16em;
+    bottom: 0px;
+    right: 0px;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.ui-info-time > div {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.ui-info-edit {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) -2px -2px 2px;
+    width: 100%;
+    bottom: 0px;
+}
+
+.ui-info-error {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 8px;
+    left: 17em;
+    right: 20em;
+    bottom: 0px;
+}
+
+.ui-outer {
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    left: 0px;
+    top: 0px;
+    display: table; 
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.ui-middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ui-inner {
+    background-color: white;
+    padding: 15px 30px 15px 30px;
+    display: inline-block;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 10px;
+}
+
+.ui-outer-simple {
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    left: 0px;
+    top: 0px;
+    display: table; 
+}
+
+.ui-login-form input {
+    font-size: 120%;
+    padding: 8px;
+    border-radius: 3px;
+    box-shadow: inset rgba(0, 0, 0, 0.2) 0px 0px 4px;
+    border: 0.2px solid #d0d0d0;
+}
+.ui-login-form button {
+    font-size: 120%;
+    font-family: Sans-Serif;
+    border-width: 2px;
+    padding: 8px 20px;
+    margin-top: 20px;
+}
+
+.sd-redtext {
+    color: red;
+}
+
+.sd-info-droid-place {
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.sd-info-droid-place-wide {
+    border: 2px solid #d0d0d0;
+    background-color: #fafafa;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 5px;
+    position: relative;
+    left: -2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.sd-info-droid-place > svg {
+    vertical-align: middle;
+}
+
+.sd-info-droid-text {
+    display: inline-block;
+    font-size: 70%;
+    vertical-align: middle;
+}
+
+.sd-info-time-text {
+    display: inline-block;
+    font-size: 70%;
+    vertical-align: middle;
+}
+
+.sd-info-panel-button-place {
+    vertical-align: middle;
+    white-space: nowrap;
+    margin-right: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    border: 2px solid white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.sd-info-panel-button-place > svg {
+    vertical-align: middle;
+}
+
+.sd-info-panel-selected {
+    border: 2px solid #d0d0d0;
+    background-color: #fafafa;
+    border-radius: 3px;
+}
+
+.sd-info-panel-text {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    padding-top: 10px;
+    display: inline-block;
+    font-size: 70%;
+    vertical-align: middle;
+}
+
+.sd-info-panel-button-text {
+    display: inline-block;
+    vertical-align: middle;
+}

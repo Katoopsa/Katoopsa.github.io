@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="Earth, Space, Earth from Space, 3D"/>
+<meta name="description" content="3D Earth from Space"/>
+<title>teal earth</title>
+
+<style type="text/css">@import "../main.css";</style>
+<style type="text/css">@import "earth.css";</style>
+
+<script type="x-shader/x-vertex" id="shader_color_vertex">
+    varying vec3 v_view_position;
+    varying vec2 v_uv;
+    varying vec3 v_normal;
+    varying vec3 v_view_normal;
+    void main() {
+        v_uv = uv;
+        vec4 vp = modelViewMatrix * vec4(position, 1.0);
+        v_view_position = vp.xyz;
+        v_normal = vec3(modelMatrix * vec4(normal, 1.0));
+        v_view_normal = normalize(normalMatrix * normal);
+        gl_Position = projectionMatrix * vp;
+    }
+</script>
+<script type="x-shader/x-fragment" id="shader_color_fragment">
+    #define M_PI 3.14159265
+
+    uniform sampler2D u_summer_map;
+    uniform sampler2D u_winter_map;
+    uniform sampler2D u_bump_map;
+    uniform sampler2D u_specular_map;
+    uniform sampler2D u_clouds_map;
+    uniform sampler2D u_night_map;
+    uniform vec3 u_sol_position;
+    uniform float u_winter;
+    varying vec3 v_view_position;
+    varying vec2 v_uv;
+    varying vec3 v_normal;
+    varying vec3 v_view_normal;
+
+    const vec3 dt = vec3(1.0 / 2000.0, 1.0 / 1000.0, 0.0);
+    
+    vec3 calc_bump_normal(vec3 normal, sampler2D bump_map, float size) {
+        float h = texture2D(bump_map, v_uv).r;
+        float hx = texture2D(bump_map, v_uv + dt.xz).r - h;
+        float hy = texture2D(bump_map, v_uv + dt.zy).r - h;
+        vec3 r1 = normalize(cross(normal, normal + 0.5));
+        vec3 r2 = normalize(cross(normal, r1));
+        return normalize(normal + size * (hy * r1 + hx * r2));
+    }
+
+    float calc_intensity(vec3 normal) {
+        return pow(max(dot(normalize(normal + u_sol_position * 0.12), u_sol_position), 0.0), 1.3);
+    }
+
+    vec3 balance(vec3 color) {
+        color.b = pow(color.b, 0.7);
+        color.r = pow(color.r, 0.9);
+        color += 0.2;
+        return color;
+    }
+
+    void main() {
+        float intensity = calc_intensity(v_normal);
+        vec3 bump_normal = calc_bump_normal(v_normal, u_bump_map, 4.0 * intensity);
+        vec3 clouds_normal = calc_bump_normal(v_normal, u_clouds_map, 2.0 * intensity);
+        float surface_intensity = pow(calc_intensity(bump_normal), 1.2);
+        float clouds_intensity = calc_intensity(clouds_normal);
+
+        vec3 summer_color = texture2D(u_summer_map, v_uv).rgb;
+        vec3 winter_color = texture2D(u_winter_map, v_uv).rgb;
+        vec3 color = mix(winter_color, summer_color, 1.0 - u_winter);
+        float specular_strength = texture2D(u_specular_map, v_uv).r;
+        vec3 half_vector = normalize(u_sol_position - normalize(v_view_position));
+        float specular_intensity = max(dot(bump_normal, half_vector), 0.0);
+
+        float water_shine = (1.0 - specular_strength) * 0.7 *
+                max(pow(specular_intensity, 70.0), 0.0);
+        vec3 water_color = color * 0.2 - 0.4 + vec3(0.40, 0.50, 0.65) * 1.2;
+        color = mix(water_color, balance(color), specular_strength);
+        vec3 surface_color = color * surface_intensity +
+                vec3(0.70, 0.65, 0.47) * surface_intensity * water_shine;
+
+        float view_intensity = clamp(1.0 - dot(u_sol_position, vec3(0.0, 0.0, 1.0)), 0.0, 1.0);
+        vec3 night_color = texture2D(u_night_map, v_uv).rgb;
+        night_color = (night_color * 2.5 * view_intensity) * 
+                max(0.2 - intensity, 0.0) * pow(night_color.r, 0.9);
+
+        vec4 earth_color = vec4(surface_color + night_color, 1.0);
+
+        float halo = pow(pow(1.0 - dot(v_view_normal, vec3(0.0, 0.0, 1.0)), 0.6) +
+                (1.0 - pow(intensity, 0.4)), 4.0) * 4.0;
+        vec4 air_color = vec4(0.50, 0.7, 1.0, 0.2 * halo * intensity) -
+                vec4(0.089, 0.487, 0.62, 0.0) * pow(1.0 - intensity, 10.0);
+        earth_color = earth_color * (1.0 - air_color.a) + air_color * air_color.a;
+
+        earth_color = earth_color * (1.0 - air_color.a) + air_color * air_color.a * 0.5;
+        earth_color.b = pow(earth_color.b, 1.0 - air_color.a);
+        earth_color.g = pow(earth_color.g, pow(1.0 - air_color.a, 0.4));
+
+        float ref = pow(1.2 - dot(v_view_normal, vec3(0.0, 0.0, 1.0)), 6.0);
+        float ref_intensity = pow(clamp(dot(v_normal, u_sol_position), 0.0, 1.0), 0.7);
+        vec4 ref_color = vec4(0.6, 0.8, 1.0, 1.0 * ref * ref_intensity);
+        earth_color = earth_color * (1.0 - ref_color.a) + ref_color * ref_color.a;
+
+        float h = texture2D(u_clouds_map, v_uv).x;
+        vec3 clouds_color = vec3(pow(h, 0.6) * (2.2 - intensity) * clouds_intensity);
+        earth_color = earth_color * (1.0 - clouds_color.r) + vec4(clouds_color, 0.0);
+
+        gl_FragColor = earth_color;
+    }
+</script>
+
+<script type="x-shader/x-vertex" id="shader_atmosphere_vertex">
+    varying vec3 v_normal;
+    varying vec3 v_view_normal;
+    void main() {
+        v_normal = vec3(modelMatrix * vec4(normal, 1.0));
+        v_view_normal = normalize(normalMatrix * normal);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+</script>
+<script type="x-shader/x-fragment" id="shader_atmosphere_fragment">
+    uniform vec3 u_sol_position;
+    varying vec3 v_normal;
+    varying vec3 v_view_normal;
+    void main() {
+        float intensity = clamp(dot(v_normal, u_sol_position), 0.0, 1.0);
+        float halo = min(pow(dot(v_view_normal, vec3(0.0, 0.0, 1.0)) + 0.8, 10.0), 2.5);
+        float ref = pow(1.28 - dot(v_view_normal, vec3(0.0, 0.0, 1.0)), 50.0);
+        gl_FragColor = vec4(0.3, 0.40, 0.5, 1.0 * pow(intensity, 1.5) * ref) * halo;
+    }
+</script>
+
+</head>
+
+<body style="margin: 0px; background: black; color: white; overflow: hidden">
+    <div id="gui1" class="control_panel">
+        <h6><img src="../favicon.ico" style="vertical-align: middle"></img> <a href="..">teal</a> earth</h6>
+        <p id="loading_text">Loading libraries and textures, please wait a bit...</p>
+        <p id="info_text"><a href="http://www.teall.info/2015/08/earth-from-space.html">More info and help</a></p>
+    </div>
+    <div id="gui2" class="noselect" style="display: none">
+        <div class="bottom_left">
+            <input id="time_indicator" type="text"></input>
+            <button id="button_set_current">set now</button>
+            <button id="button_realtime" mode="realtime">&#62;</button>
+            <button id="button_fastertime" mode="fastertime">&#62;&#62;</button>
+            <button id="button_fasttime" mode="fasttime">&#62;&#62;&#62;</button>
+            <button id="button_find_me">find me</button>
+            <button id="button_music">♪ music</button>
+        </div>
+
+        <div class="copy_rights control_panel">
+            uses three.js, IP-API.com<br/>textures are from nasa.gov
+        </div>
+    </div>
+    <div id="guimusic" class="top_right control_panel" style="display: none">
+        <div>♪ <i id="music_name"></i></div>
+        <div style="font-size: 80%">© <a id="music_link"></a></div>
+    </div>
+    <div id="canvas"></div>
+    <img id="earth_winter" src="earth_texture/winter.jpg" style="display: none"/>
+    <img id="earth_summer" src="earth_texture/summer.jpg" style="display: none"/>
+    <img id="earth_clouds" src="earth_texture/clouds1.jpg" style="display: none"/>
+    <img id="earth_specular" src="earth_texture/specular.jpg" style="display: none"/>
+    <img id="earth_bump" src="earth_texture/bump.jpg" style="display: none"/>
+    <img id="earth_night" src="earth_texture/night.jpg" style="display: none"/>
+
+    <script type="text/javascript" src="../libs/three.min.js"></script>
+    <script type="text/javascript" src="../teal.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <script type="text/javascript" defer="defer">
+        document.body.onload = function() {
+            earth_initialize(); 
+        }
+    </script>
+</body>
+</html>

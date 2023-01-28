@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content=""/>
+<meta name="description" content="storedroids"/>
+<title>storedroids</title>
+
+<style type="text/css">@import "../main.css";</style>
+<style type="text/css">@import "storedroids.css";</style>
+
+</head>
+
+<body style="margin: 0; overflow: hidden">
+    <div id="hider"></div>
+
+    <div id="ui" style="display: none; overflow: auto">
+        <div class="ui-top">
+            <span class="modes" id="modes">
+                <button id="brun" class="small-text-button">Эмулятор</button>
+                <button id="bedit" class="small-text-button">Редактор</button>
+            </span>
+            <span class="controls" style="float: right">
+                <span id="play" style="display: none">
+                    <span id="playback">
+                        <button id="bpause" class="small-button"><img src="pause.svg"></img></button>
+                        <button id="bplay1" class="small-button"><img src="play.svg"></img></button>
+                        <button id="bplay4" class="small-text-button"><img src="play.svg"></img>×4</button>
+                        <button id="bplay16" class="small-text-button"><img src="play.svg"></img>×16</button>
+                    </span>
+                    <button id="bautowork" class="small-text-button"><img src="doubleplay.svg"></img></button>
+                    <button id="bautoworkhour" class="small-text-button"><img src="doubleplay.svg"></img> 1 час</button>
+                </span>
+                <span id="edit" style="display: none">
+                    <button id="bnew" class="small-text-button">Новый склад</button>
+                    <button id="bsave" class="small-text-button">Сохранить</button>
+                </span>
+                <img src="controls.svg" style="margin-left: 10px"></img>
+            </span>
+        </div>
+    </div>
+
+    <div id="playpanels" style="display: none">
+        <div class="ui-info-droid">
+            <div id="stateplace"></div>
+            <button id="bdroid_character" class="small-text-button" style="margin-top: 10px">Свойства</button>
+        </div>
+        <div class="ui-info-time">
+            <div class="sd-info-time-text" id="timeplace"></div>
+            <p></p><button id="bcollog" class="small-text-button">Журнал коллизий</button>
+        </div>
+    </div>
+    <div id="editpanels" style="display: none">
+        <div class="ui-info-edit">
+            <div id="editback">
+                <button id="bestore" class="small-text-button">Геометрия</button>
+                <button id="bedirections" class="small-text-button">Приоритеты движения</button>
+                <button id="beracks" class="small-text-button">Стеллажи</button>
+                <button id="bedroids" class="small-text-button">Роботы</button>
+            </div>
+            <div class="sd-info-panel-text" id="editplace"></div>
+        </div>
+    </div>
+    <div id="errorpanels" style="display: none">
+        <div class="ui-info-error">
+            <div class="sd-info-time-text" id="errorplace"></div>
+        </div>
+    </div>
+
+    <div class="noselect" id="svgplace"></div>
+    <div class="noselect">
+        <div class="noselect" id="tooltip"></div>
+    </div>
+
+    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="../teal.js"></script>
+    <script type="text/javascript" src="../teal.svg.js"></script>
+    <script type="text/javascript" src="store.js"></script>
+    <script type="text/javascript" src="physics.js"></script>
+    <script type="text/javascript" src="gui.js"></script>
+    <script type="text/javascript" src="edit.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" defer="defer">
+        window.addEventListener('load', function() {
+            //login_initialize();
+            teal.storedroids_initialize();
+        }, false);
+    </script>
+</body>
+</html>
